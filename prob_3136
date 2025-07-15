@@ -1,0 +1,25 @@
+class Solution {
+    public boolean isValid(String word) {
+        if(word.length() < 3){
+            return false;
+        }
+        boolean vowel = false;
+        boolean consonant = false;
+        for(char c : word.toCharArray()){
+            
+            if(Character.isLetter(c)){
+                char lower = Character.toLowerCase(c);
+                if("aeiou".indexOf(lower) != -1){
+                    vowel = true;
+                }
+                else{
+                    consonant = true;
+                }
+            }
+            if(!Character.isLetterOrDigit(c)){
+                    return false;
+                }
+        }
+        return vowel && consonant;
+    }
+}
