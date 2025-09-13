@@ -1,0 +1,28 @@
+class Solution {
+    public int maxFreqSum(String s) {
+        Map<Character,Integer> m1 = new HashMap<>();
+        Map<Character,Integer> m2 = new HashMap<>();
+        for(int i = 0;i < s.length();i++){
+            char c = s.charAt(i);
+            if(c >= 'a' && c <= 'z'){
+                if(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'){
+                    m1.put(c,m1.getOrDefault(c,0)+1);
+                }else{
+                    m2.put(c,m2.getOrDefault(c,0)+1);
+                }
+            }
+        }
+        int v,c;
+        if(m1.isEmpty()){
+            v = 0;
+        }else{
+            v = Collections.max(m1.values());
+        }
+        if(m2.isEmpty()){
+            c = 0;
+        }else{
+            c = Collections.max(m2.values());
+        }
+        return v + c;
+    }
+}
